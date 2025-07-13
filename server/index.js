@@ -1,11 +1,7 @@
 const express = require('express');
-const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const Sentry = require('@sentry/node');
-const { morgan, logger } = require('./src/middleware/logger');
-const security = require('./src/middleware/security');
-const errorHandler = require('./src/middleware/errorHandler');
 const { morgan, logger } = require('./src/middleware/logger');
 const security = require('./src/middleware/security');
 const errorHandler = require('./src/middleware/errorHandler');
