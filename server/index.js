@@ -1,7 +1,11 @@
 const express = require('express');
+const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const Sentry = require('@sentry/node');
+const { morgan, logger } = require('./src/middleware/logger');
+const security = require('./src/middleware/security');
+const errorHandler = require('./src/middleware/errorHandler');
 const { morgan, logger } = require('./src/middleware/logger');
 const security = require('./src/middleware/security');
 const errorHandler = require('./src/middleware/errorHandler');
@@ -14,6 +18,7 @@ Sentry.init({
   dsn: process.env.SENTRY_DSN || '',
   tracesSampleRate: 1.0,
 });
+app.use(express.json());
 app.use(Sentry.Handlers.requestHandler());
 
 // Middleware
