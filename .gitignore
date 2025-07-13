@@ -1,13 +1,27 @@
 # Node modules
 client/node_modules/
 server/node_modules/
+node_modules/
 
 # Build output
 client/build/
 
 # Environment variables
 client/.env
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
 server/.env
+server/.env.local
+server/.env.development.local
+server/.env.test.local
+server/.env.production.local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Logs
 *.log
@@ -15,13 +29,6 @@ server/.env
 # OS files
 .DS_Store
 Thumbs.db
-
-# Misc
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
 # VS Code settings
 .vscode/
