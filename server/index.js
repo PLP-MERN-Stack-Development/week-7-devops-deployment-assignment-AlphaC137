@@ -15,7 +15,7 @@ Sentry.init({
   tracesSampleRate: 1.0,
 });
 app.use(express.json());
-app.use(Sentry.Handlers.requestHandler());
+app.use(Sentry.requestHandler());
 
 // Middleware
 app.use(express.json());
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 });
 
 // Sentry error handler
-app.use(Sentry.Handlers.errorHandler());
+app.use(Sentry.errorHandler());
 // Custom error handler
 app.use(errorHandler);
 
