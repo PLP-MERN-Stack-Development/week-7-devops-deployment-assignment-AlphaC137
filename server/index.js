@@ -1,10 +1,10 @@
+const errorHandler = require('./src/middleware/errorHandler');
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const Sentry = require('@sentry/node');
 const { morgan, logger } = require('./src/middleware/logger');
 const security = require('./src/middleware/security');
-const errorHandler = require('./src/middleware/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,7 +15,7 @@ Sentry.init({
   tracesSampleRate: 1.0,
 });
 app.use(express.json());
-app.use(Sentry.requestHandler());
+app.use(Sentry.Handlers.requestHandler());
 
 // Middleware
 app.use(express.json());
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 });
 
 // Sentry error handler
-app.use(Sentry.errorHandler());
+app.use(Sentry.Handlers.errorHandler());
 // Custom error handler
 app.use(errorHandler);
 
